@@ -9,6 +9,18 @@ Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID uti
 
 ## Materiais utilizados
 
+* NodeMCU;
+* RFID: Rfid Mfrc522 Mifare;
+* Jumpers;
+* 2 Tags rfid;
+
+## Tecnologias utilizadas
+
+* MQTT
+* Python
+* NodeJS
+* MySQL
+
 ## Fluxo do projeto
 
 ## Como utilizar o projeto
