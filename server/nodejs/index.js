@@ -8,9 +8,9 @@ require('dotenv').load();
 const config = require('./config/config');
 
 /* Middlewares */
-app.use(cors());
-app.use(bodyParser.urlencoded({extend: false}));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(cors());
 
 /* Routes */
 app.use('/api', require('./routes'));
