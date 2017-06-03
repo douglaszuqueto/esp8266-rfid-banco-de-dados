@@ -13,6 +13,7 @@ Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID uti
 * RFID: Rfid Mfrc522 Mifare;
 * Jumpers;
 * 2 Tags rfid;
+* Buzzer
 
 ## Tecnologias utilizadas
 
