@@ -12,6 +12,18 @@ const show = (req, res) => {
         .catch((err) => res.json(err))
 };
 
+const searchByTag = (req, res) => {
+    return model.searchByTag(req.params.tag)
+        .then((data) => {
+            const tag = data[0];
+
+            if (!tag) res.json({});
+
+            res.json(tag);
+        })
+        .catch((err) => res.json(err))
+};
+
 const create = (req, res) => {
     res.json('create');
 };
@@ -27,6 +39,7 @@ const remove = (req, res) => {
 module.exports = {
     index: index,
     show: show,
+    searchByTag: searchByTag,
     create: create,
     update: update,
     remove: remove
