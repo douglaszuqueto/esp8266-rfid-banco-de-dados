@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
 /* Routes */
-app.use('/api', require('./routes'));
+app.use('/api', require('./routes/main'));
 
 /* App listen */
 app.listen(3000, () => console.log(`nodejs-backend is running`));
