@@ -2,7 +2,7 @@
 
 Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID utilizando Banco de Dados
 
-![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/diagrama.png?style=centerme)
+![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/diagrama.png?style=centerme)
 
 
 ## Introdução
