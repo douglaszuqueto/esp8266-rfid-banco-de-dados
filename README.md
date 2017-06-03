@@ -1,4 +1,4 @@
-# Controle de acesso utilizando NodeMCU, RFID e Banco de Dados MySQL
+# Controle de acesso utilizando NodeMCU, RFID, MQTT e Banco de Dados MySQL
 
 Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID utilizando Banco de Dados
 
