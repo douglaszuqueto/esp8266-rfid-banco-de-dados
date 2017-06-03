@@ -1,9 +1,15 @@
+const model = require('../../models/logs');
+
 const index = (req, res) => {
-    res.json('index');
+    return model.all()
+        .then((data) => res.json(data))
+        .catch((err) => res.json(err))
 };
 
 const show = (req, res) => {
-    res.json('show');
+    return model.find(req.params.id)
+        .then((data) => res.json(data[0]))
+        .catch((err) => res.json(err))
 };
 
 const create = (req, res) => {
