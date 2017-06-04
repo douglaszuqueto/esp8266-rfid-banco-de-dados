@@ -80,36 +80,7 @@
 <script src="assets/js/jquery-2.2.0.min.js"></script>
 <script src="assets/js/init-bulma.js"></script>
 <script src="assets/js/app.js"></script>
-<script>
-    const logsTable = document.getElementById('logs-table');
+<script src="assets/js/app-logs.js"></script>
 
-    const getLogs = () => {
-        return http.get(endpoints.logs);
-    };
-
-    const updateLogsTable = () => {
-        getLogs()
-            .then((logs) => logs.data)
-            .then((logs) => {
-                let table = '';
-
-                logs.forEach((log) => {
-                    table += `<tr>`;
-                    table += `<td>${log.id}</td>`;
-                    table += `<td>${log.id_user}</td>`;
-                    table += `<td>${log.id_tag}</td>`;
-                    table += `<td>${log.status}</td>`;
-                    table += `<td class="has-text-centered">-</td>`;
-                    table += `<td class="has-text-centered">-</td>`;
-                    table += `</tr>`;
-                });
-                logsTable.innerHTML = table;
-            })
-            .catch((err) => console.log);
-    };
-
-    updateLogsTable();
-
-</script>
 </body>
 </html>

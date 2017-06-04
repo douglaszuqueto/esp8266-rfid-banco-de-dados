@@ -46,11 +46,21 @@
 <main class="container">
     <div class="columns">
         <div class="column is-10 is-offset-1">
+            <p>
+                <a class="button is-success modal-button is-pulled-right" data-target="#modal-ter">Cadastrar</a>
+            </p>
             <h3>Tags</h3>
+            <br>
+
+            <div class="notification hidden" id="alert">
+                <button class="delete"></button>
+                <span class="message-text"></span>
+            </div>
             <table class="table">
                 <thead>
                 <tr>
                     <th>id</th>
+                    <th>id_user</th>
                     <th>tag</th>
                     <th>state</th>
                     <th style="text-align: center">#</th>
@@ -59,6 +69,37 @@
                 </thead>
                 <tbody id="tags-table"></tbody>
             </table>
+        </div>
+    </div>
+
+    <!-- Modal de Cadastro -->
+    <div id="modal-ter" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Tags</p>
+                <button class="delete"></button>
+            </header>
+            <form action="">
+                <section class="modal-card-body">
+                    <div class="content">
+                        <div class="field">
+                            <p class="control has-icons-left has-icons-right">
+                                <input class="input" type="text" id="tag" name="tag" placeholder="Tag"
+                                       required>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-tag"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <footer class="modal-card-foot">
+                    <a class="button is-success create-tag">Salvar</a>
+                    <a class="button modal-cancel">Cancelar</a>
+                </footer>
+                <input type="hidden" name="id" id="id">
+            </form>
         </div>
     </div>
 </main>
@@ -79,35 +120,7 @@
 <script src="assets/js/jquery-2.2.0.min.js"></script>
 <script src="assets/js/init-bulma.js"></script>
 <script src="assets/js/app.js"></script>
-<script>
-    const usersTable = document.getElementById('tags-table');
+<script src="assets/js/app-tags.js"></script>
 
-    const getTags = () => {
-        return http.get(endpoints.tags);
-    };
-
-    const updateTagsTable = () => {
-        getTags()
-            .then((tags) => tags.data)
-            .then((tags) => {
-                let table = '';
-
-                tags.forEach((tag) => {
-                    table += `<tr>`;
-                    table += `<td>${tag.id}</td>`;
-                    table += `<td>${tag.tag}</td>`;
-                    table += `<td>${tag.state}</td>`;
-                    table += `<td class="has-text-centered">-</td>`;
-                    table += `<td class="has-text-centered">-</td>`;
-                    table += `</tr>`;
-                });
-                usersTable.innerHTML = table;
-            })
-            .catch((err) => console.log);
-    };
-
-    updateTagsTable();
-
-</script>
 </body>
 </html>
