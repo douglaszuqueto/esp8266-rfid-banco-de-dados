@@ -24,13 +24,11 @@ const authorizeRfid = (topic, tag) => {
     request(`${config.api.endpoints.tags}tag/${tag}`)
         .then((data) => JSON.parse(data))
         .then((result) => {
-            if (!result.tag)   return sendPong(0);
+            if (!result.tag) return sendPong(0);
 
             return sendPong(1);
         })
-        .catch((err) => {
-            console.log(err);
-        });
+        .catch((err) => console.log(err));
 
 };
 const sendPong = (payload) => {
