@@ -11,7 +11,7 @@ const find = (id) => {
 };
 
 const create = (data) => {
-    const query = `INSERT INTO ${table} (id_user, tag, status) VALUES (${data.id_user}, ${data.tag}, ${data.status});`;
+    const query = `INSERT INTO ${table} (id_user, tag, status) VALUES (${data.id_user}, '${data.tag}', ${data.status});`;
 
     return db.query(query);
 };

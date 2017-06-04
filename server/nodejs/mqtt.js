@@ -59,7 +59,7 @@ const createLog = (payload) => {
     };
 
     request(options)
-        .then((res) => '')
+        .then((res) => console.log(res))
         .catch((err) => console.log('err'));
 
     return payload.status;
