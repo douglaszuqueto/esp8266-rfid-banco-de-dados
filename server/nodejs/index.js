@@ -17,3 +17,6 @@ app.use('/api', require('./routes/main'));
 
 /* App listen */
 app.listen(3000, () => console.log(`nodejs-backend is running`));
+
+/* mqtt */
+require('./mqtt');
