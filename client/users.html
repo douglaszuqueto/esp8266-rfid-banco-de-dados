@@ -120,65 +120,7 @@
 <script src="assets/js/jquery-2.2.0.min.js"></script>
 <script src="assets/js/init-bulma.js"></script>
 <script src="assets/js/app.js"></script>
-<script>
-    const usersTable = document.getElementById('users-table');
+<script src="assets/js/app-user.js"></script>
 
-    const getUsers = () => {
-        return http.get(endpoints.users);
-    };
-
-    const updateUsersTable = () => {
-        getUsers()
-            .then((users) => users.data)
-            .then((users) => {
-                let table = '';
-
-                users.forEach((user) => {
-                    table += `<tr>`;
-                    table += `<td>${user.id}</td>`;
-                    table += `<td>${user.user}</td>`;
-                    table += `<td>${user.email}</td>`;
-                    table += `<td class="has-text-centered">-</td>`;
-                    table += `<td class="has-text-centered">-</td>`;
-                    table += `</tr>`;
-                });
-                usersTable.innerHTML = table;
-            })
-            .catch((err) => console.log);
-    };
-
-    const createUser = (data) => {
-        return http.post(endpoints.users, data);
-    };
-
-    const resetForm = (name, email) => {
-        name.val('');
-        email.val('');
-
-        $('html').removeClass('is-clipped');
-        $('#modal-ter').removeClass('is-active');
-    };
-    $(document).ready(() => {
-        updateUsersTable();
-
-        $('#create-user').on('click', function (e) {
-            e.preventDefault();
-
-            const nameInput = $('#name');
-            const emailInput = $('#email');
-            const data = {
-                name: nameInput.val(),
-                email: emailInput.val()
-            };
-            createUser(data)
-                .then((user) => console.log())
-                .then((user) => resetForm(nameInput, emailInput))
-                .catch((err) => console.log());
-
-            return false;
-        });
-    });
-
-</script>
 </body>
 </html>

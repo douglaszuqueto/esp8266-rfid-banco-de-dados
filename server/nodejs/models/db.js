@@ -30,6 +30,12 @@ const query = (query) => {
     });
 };
 
+const remove = (table, id) => {
+    return new Promise((resolve, reject) => {
+        executeQuery(`DELETE FROM ${table} WHERE id = ${id}`, resolve, reject)
+    });
+};
+
 const executeQuery = (query, resolve, reject) => {
     return db.query(query, (err, results) => {
         if (err) return reject(err);
@@ -42,5 +48,6 @@ module.exports = {
     connection: db,
     query: query,
     all: all,
-    find: find
+    find: find,
+    remove: remove
 };
