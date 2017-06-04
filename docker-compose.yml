@@ -1,0 +1,54 @@
+version: '3'
+
+# Named volumes
+volumes:
+  # MySQL Data
+  rfid-mysql-data:
+    driver: local
+
+services:
+  # Client
+  client:
+    image: abiosoft/caddy
+    container_name: rfid-client
+    volumes:
+      - ./client:/srv
+    ports:
+      - "80:2015"
+
+  # WebService - NodeJS
+  server:
+    image: ambientum/node
+    container_name: rfid-server
+    command: node index.js
+    volumes:
+      - ./server/nodejs:/var/www/app
+    ports:
+      - "3000:3000"
+    links:
+      - mysql
+    depends_on:
+      - mysql
+  # WebService - Python
+#  server:
+#    container_name: rfid-server
+#    volumes:
+#      - ./server/python:/var/www/app
+#    ports:
+#      - "3000:3000"
+#    links:
+#      - mysql
+
+  # MySQL (5.7)
+  mysql:
+    image: ambientum/mysql:5.7
+    container_name: rfid-mysql
+    volumes:
+      - rfid-mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=rfid
+      - MYSQL_USER=rfid
+      - MYSQL_PASSWORD=rfid
