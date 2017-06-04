@@ -2,8 +2,7 @@
 
 Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID utilizando Banco de Dados
 
-![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/diagrama.png?style=centerme)
-
+![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/diagrama.png)
 
 ## Introdução
 
@@ -12,29 +11,59 @@ Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID uti
 * NodeMCU;
 * RFID: Rfid Mfrc522 Mifare;
 * Jumpers;
-* 2 Tags rfid;
-* Buzzer
+* Tags RFID;
+* Buzzer;
+* Protoboar;
 
 ## Tecnologias utilizadas
 
-* MQTT
-* Python
-* NodeJS
-* MySQL
+* Firmare NodeMCU
+    * Rfid;
+    * Pubsubclient
+* Back-end Nodejs
+    * mqttjs
+    * promise
+    * request-promise
+    * express
+    * mysqljs
+    * dotenv
+* Back-end Python
+    * flask
+* Front-end
+    * bulma
+    * axios
+    * mqttws31    
 
 ## Fluxo do projeto
 
+![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/diagrama.png)
+
+
 ## Como utilizar o projeto
 
-### Firmware NodeMCU
+Primeiramente deixe seu **Star** no projeto, é isto mesmo! hehe.
+Segundamente, efetue o fork ou um clone do repositório.
 
-### Aplicação Web
+### Organização do repositório
 
-### Banco de Dados
+O repositório está organizado devido as responsabilidades que o mesmo oferece.
 
-### Webservice de autenticação/autorização - Python
+* client - será o front-end da aplicação web;
+* database - script com a estrutura das tabelas do mysql;
+* esp8266 - firmware para o nodemcu;
+* server - referente ao back-end da aplicação. Neste caso terá 2 back-ends(poderá escolher 1 para seu uso);
+    * nodejs
+    * python
 
-### Webservice de autenticação/autorização - NodeJS
+#### Firmware NodeMCU
+
+#### Aplicação Web
+
+#### Banco de Dados
+
+#### Server
+* NodeJS
+* Python
 
 ## Cadastro de Usuários
 
@@ -42,9 +71,9 @@ Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID uti
 
 ## Testando aplicação
 
-## Finalização
+## Finalizando
 
 ## Referências
 
-**Acompanhe também meu blog :): https://douglaszuqueto.com**
+**Não esqueça de acompanhar o blog :): https://douglaszuqueto.com**
 
