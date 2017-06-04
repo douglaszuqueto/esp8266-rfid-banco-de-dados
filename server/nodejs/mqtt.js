@@ -47,7 +47,7 @@ const createLog = (payload) => {
 
     const log = {
         id_user: payload.data.id_user,
-        tag: payload.data.tag,
+        id_tag: payload.data.id,
         status: payload.status
     };
 
