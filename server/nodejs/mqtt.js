@@ -58,8 +58,8 @@ const createLog = (payload) => {
     };
 
     request(options)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+        .then((res) => console.log('ok'))
+        .catch((err) => console.log('err'));
 
     return payload.status;
 };
