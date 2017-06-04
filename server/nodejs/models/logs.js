@@ -16,8 +16,13 @@ const create = (data) => {
     return db.query(query);
 };
 
+const remove = (id) => {
+    return db.remove(table, id);
+};
+
 module.exports = {
     all: all,
     find: find,
-    create: create
+    create: create,
+    remove: remove
 };

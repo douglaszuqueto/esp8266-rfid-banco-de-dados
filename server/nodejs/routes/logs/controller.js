@@ -23,7 +23,9 @@ const update = (req, res) => {
 };
 
 const remove = (req, res) => {
-    res.json('remove');
+    return model.remove(req.params.id)
+        .then((data) => res.json(data))
+        .catch((err) => res.json(err));
 };
 
 module.exports = {
