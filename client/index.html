@@ -51,13 +51,26 @@
             </div>
         </div>
     </nav>
-
 </div>
 <br>
 <br>
 <main class="container">
     <div class="columns">
-        <h4>RFID</h4>
+        <div class="column is-3 card">
+            <div class="card-content">
+                <p class="subtitle">
+                    Última tag autenticada<br>
+                <p id="last-tag" style="text-align: center">--------</p>
+                </p>
+            </div>
+            <footer class="card-footer">
+                <p class="card-footer-item">
+                  <span>
+                    <a href="logs.html">Todos logs de acesso</a>
+                  </span>
+                </p>
+            </footer>
+        </div>
     </div>
 </main>
 <footer>
@@ -77,5 +90,6 @@
 <script src="assets/js/jquery-2.2.0.min.js"></script>
 <script src="assets/js/init-bulma.js"></script>
 <script src="assets/js/app.js"></script>
+<script src="assets/js/app-index.js"></script>
 </body>
 </html>
