@@ -21,7 +21,7 @@ const create = (data) => {
 };
 
 const update = (id, data) => {
-    const query = `UPDATE ${table} SET tag = '${data.tag}' WHERE id = ${id};`;
+    const query = `UPDATE ${table} SET tag = '${data.tag}', state = ${data.state} WHERE id = ${id};`;
 
     return db.query(query);
 };

@@ -1,5 +1,6 @@
 const tagsTable = document.getElementById('tags-table');
 const tagInput = $('#tag');
+const stateChebox = $('#state');
 const idInput = $('#id');
 
 const Tags = {
@@ -56,6 +57,7 @@ const createOrUpdate = () => {
 
     const data = {
         tag: tagInput.val(),
+        state: stateChebox.is(':checked') ? 1 : 0
     };
 
     if (id) {
@@ -106,6 +108,7 @@ $(document).ready(() => {
             .then((tag) => {
                 idInput.val(tag.id);
                 tagInput.val(tag.tag);
+                stateChebox.prop('checked', tag.state);
 
                 $('html').addClass('is-clipped');
                 $(target).addClass('is-active');
