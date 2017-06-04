@@ -65,11 +65,38 @@ O repositório está organizado devido as responsabilidades que o mesmo oferece.
 * NodeJS
 * Python
 
-## Cadastro de Usuários
+## Endpoints
 
-## Cadastro de Tags
+Para tabela de nossa aplicalção - users, tags, access_log -, teremos
+uma api completa para efetuar o CRUD(create, read, update, delete) de cada recurso disponível.
 
-## Testando aplicação
+* users (/api/users)
+    * GET / - lista de usuários
+    * GET /:id - busca de usuário por ID
+    * POST / - cadastro de usuário
+    * UPDATE /:id - atualização de usuário
+    * DELETE /:id - remoção de usuário
+* tags (/api/tags)
+    * GET / - lista de tags
+    * GET /:id - busca de tag por ID
+    * GET /tag/:tag - busca de tag por nome
+    * POST / - cadastro de tag
+    * UPDATE /:id - atualização de tag
+    * DELETE /:id - remoção de tag
+* access_log (/api/logs)
+    * GET / - lista de logs
+    * GET /:id - busca de log por ID
+    * POST / - cadastro de log
+    * UPDATE /:id - atualização de log
+    * DELETE /:id - remoção de log
+    
+## Usuários
+
+## Tags
+
+## Logs
+
+## Testando a aplicação
 
 ## Finalizando
 
