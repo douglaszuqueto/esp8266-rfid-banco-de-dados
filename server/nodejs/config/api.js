@@ -1,4 +1,4 @@
-const basePath = 'http://127.0.0.1:3000/api/';
+const basePath = `${process.env.APP_URL}api/`;
 
 module.exports = {
     endpoints: {

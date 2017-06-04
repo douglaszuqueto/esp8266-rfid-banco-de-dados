@@ -13,6 +13,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
 /* Routes */
+app.get('/', (req, res) => {
+    res.json({
+        'endpoints': config.api.endpoints
+    });
+});
+
 app.use('/api', require('./routes/main'));
 
 /* App listen */
