@@ -34,7 +34,7 @@ const formatPayload = (result) => {
         'data': result,
         'status': 0,
     };
-    
+
     if (!result.tag || result.state === 0) {
         return payload;
     }
@@ -59,12 +59,13 @@ const createLog = (payload) => {
     };
 
     request(options)
-        .then((res) => console.log('ok'))
+        .then((res) => '')
         .catch((err) => console.log('err'));
 
     return payload.status;
 };
 
-const sendPong = (payload) => {
-    client.publish(rfidPongTopic, payload.toString());
+const sendPong = (state) => {
+    console.log(`Acesso ${state ? 'permitido' : 'bloqueado'}!`);
+    client.publish(rfidPongTopic, state.toString());
 };

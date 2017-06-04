@@ -11,7 +11,7 @@ const find = (id) => {
 };
 
 const searchByTag = (tag) => {
-    return db.query(`SELECT * FROM ${table} WHERE tag = ${tag} LIMIT 1`)
+    return db.query(`SELECT * FROM ${table} WHERE tag = '${tag}'`)
 };
 
 module.exports = {
