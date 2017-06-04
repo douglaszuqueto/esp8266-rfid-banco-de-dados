@@ -13,14 +13,14 @@ client.on('connect', () => {
 });
 
 client.on('message', (topic, message) => {
+    if (rfidPingTopic !== topic) return;
+
     const tag = message.toString();
 
     authorizeRfid(topic, tag);
 });
 
 const authorizeRfid = (topic, tag) => {
-    if (rfidPingTopic !== topic) return;
-
     request(`${config.api.endpoints.tags}tag/${tag}`)
         .then((data) => JSON.parse(data))
         .then((result) => formatPayload(result))
