@@ -23,14 +23,47 @@ const authorizeRfid = (topic, tag) => {
 
     request(`${config.api.endpoints.tags}tag/${tag}`)
         .then((data) => JSON.parse(data))
-        .then((result) => {
-            if (!result.tag) return sendPong(0);
-
-            return sendPong(1);
-        })
+        .then((result) => formatPayload(result))
+        .then((payload) => createLog(payload))
+        .then((status) => sendPong(status))
         .catch((err) => console.log(err));
 
 };
+const formatPayload = (result) => {
+    const payload = {
+        'data': result,
+        'status': 0,
+    };
+    if (!result.tag) {
+        return payload;
+    }
+    payload.status = 1;
+    return payload;
+};
+
+const createLog = (payload) => {
+    if (!payload.data.tag) return payload.status;
+
+    const log = {
+        id_user: payload.data.id_user,
+        tag: payload.data.tag,
+        status: payload.status
+    };
+
+    const options = {
+        method: 'POST',
+        uri: config.api.endpoints.log,
+        body: log,
+        json: true
+    };
+
+    request(options)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+
+    return payload.status;
+};
+
 const sendPong = (payload) => {
     client.publish(rfidPongTopic, payload.toString());
 };
