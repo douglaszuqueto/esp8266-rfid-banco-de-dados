@@ -32,7 +32,7 @@ const updateTable = () => {
                 table += `<td>${tag.id}</td>`;
                 table += `<td>${tag.id_user}</td>`;
                 table += `<td>${tag.tag}</td>`;
-                table += `<td>${tag.state}</td>`;
+                table += `<td class="has-text-centered"><span class="tag ${tag.state ? 'is-success' : 'is-black'}">${tag.state ? 'Ativada' : 'Desativada'}</span></td>`;
                 table += `<td class="has-text-centered edit" data-id="${tag.id}"><span class="icon"><i class="fa fa-edit"></i></span></td>`;
                 table += `<td class="has-text-centered remove" data-id="${tag.id}"><span class="icon"><i class="fa fa-trash-o"></i></span></td>`;
                 table += `</tr>`;
