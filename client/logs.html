@@ -16,10 +16,10 @@
             <a class="nav-item is-brand" href="http://bulma.io">
                 <img src="https://douglaszuqueto.com/images/logo_2.png" alt="RFID - Controle de Acesso">
             </a>
-            <a class="nav-item is-tab change-page is-active" href="/index.html">Home</a>
+            <a class="nav-item is-tab change-page" href="/index.html">Home</a>
             <a class="nav-item is-tab change-page" href="/users.html">Users</a>
             <a class="nav-item is-tab change-page" href="/tags.html">Tags</a>
-            <a class="nav-item is-tab change-page" href="/logs.html">Logs</a>
+            <a class="nav-item is-tab change-page is-active" href="/logs.html">Logs</a>
         </div>
         <span class="nav-toggle">
             <span></span>
@@ -44,7 +44,22 @@
 <br>
 <main class="container">
     <div class="columns">
-        <h4>RFID</h4>
+        <div class="column is-10 is-offset-1">
+            <h3>Logs</h3>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>id_user</th>
+                    <th>id_tag</th>
+                    <th>status</th>
+                    <th style="text-align: center">#</th>
+                    <th style="text-align: center">#</th>
+                </tr>
+                </thead>
+                <tbody id="logs-table"></tbody>
+            </table>
+        </div>
     </div>
 </main>
 
@@ -53,5 +68,36 @@
 <script src="assets/js/jquery-2.2.0.min.js"></script>
 <script src="assets/js/init-bulma.js"></script>
 <script src="assets/js/app.js"></script>
+<script>
+    const logsTable = document.getElementById('logs-table');
+
+    const getLogs = () => {
+        return http.get(endpoints.logs);
+    };
+
+    const updateLogsTable = () => {
+        getLogs()
+            .then((logs) => logs.data)
+            .then((logs) => {
+                let table = '';
+
+                logs.forEach((log) => {
+                    table += `<tr>`;
+                    table += `<td>${log.id}</td>`;
+                    table += `<td>${log.id_user}</td>`;
+                    table += `<td>${log.id_tag}</td>`;
+                    table += `<td>${log.status}</td>`;
+                    table += `<td class="has-text-centered">-</td>`;
+                    table += `<td class="has-text-centered">-</td>`;
+                    table += `</tr>`;
+                });
+                logsTable.innerHTML = table;
+            })
+            .catch((err) => console.log);
+    };
+
+    updateLogsTable();
+
+</script>
 </body>
 </html>

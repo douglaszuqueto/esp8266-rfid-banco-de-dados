@@ -16,8 +16,8 @@
             <a class="nav-item is-brand" href="http://bulma.io">
                 <img src="https://douglaszuqueto.com/images/logo_2.png" alt="RFID - Controle de Acesso">
             </a>
-            <a class="nav-item is-tab change-page is-active" href="/index.html">Home</a>
-            <a class="nav-item is-tab change-page" href="/users.html">Users</a>
+            <a class="nav-item is-tab change-page" href="/index.html">Home</a>
+            <a class="nav-item is-tab change-page is-active" href="/users.html">Users</a>
             <a class="nav-item is-tab change-page" href="/tags.html">Tags</a>
             <a class="nav-item is-tab change-page" href="/logs.html">Logs</a>
         </div>
@@ -38,13 +38,26 @@
             </div>
         </div>
     </nav>
-
 </div>
 <br>
 <br>
 <main class="container">
     <div class="columns">
-        <h4>RFID</h4>
+        <div class="column is-10 is-offset-1">
+            <h3>Users</h3>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>user</th>
+                    <th>email</th>
+                    <th style="text-align: center">#</th>
+                    <th style="text-align: center">#</th>
+                </tr>
+                </thead>
+                <tbody id="users-table"></tbody>
+            </table>
+        </div>
     </div>
 </main>
 
@@ -53,5 +66,35 @@
 <script src="assets/js/jquery-2.2.0.min.js"></script>
 <script src="assets/js/init-bulma.js"></script>
 <script src="assets/js/app.js"></script>
+<script>
+    const usersTable = document.getElementById('users-table');
+
+    const getUsers = () => {
+        return http.get(endpoints.users);
+    };
+
+    const updateUsersTable = () => {
+        getUsers()
+            .then((users) => users.data)
+            .then((users) => {
+                let table = '';
+
+                users.forEach((user) => {
+                    table += `<tr>`;
+                    table += `<td>${user.id}</td>`;
+                    table += `<td>${user.user}</td>`;
+                    table += `<td>${user.email}</td>`;
+                    table += `<td class="has-text-centered">-</td>`;
+                    table += `<td class="has-text-centered">-</td>`;
+                    table += `</tr>`;
+                });
+                usersTable.innerHTML = table;
+            })
+            .catch((err) => console.log);
+    };
+
+    updateUsersTable();
+
+</script>
 </body>
 </html>
