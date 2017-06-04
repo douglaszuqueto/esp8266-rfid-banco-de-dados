@@ -31,7 +31,7 @@
             <div class="nav-item">
                 <a class="nav-item" target="_blank"
                    href="https://github.com/douglaszuqueto/esp8266-rfid-banco-de-dados">
-                  <span class="icon">
+                  <span class="icon is-medium">
                     <i class="fa fa-github"></i>
                   </span>
                 </a>
@@ -44,6 +44,9 @@
 <main class="container">
     <div class="columns">
         <div class="column is-10 is-offset-1">
+            <p>
+                <a class="button is-success modal-button is-pulled-right" data-target="#modal-ter">Cadastrar</a>
+            </p>
             <h3>Users</h3>
             <table class="table">
                 <thead>
@@ -59,7 +62,58 @@
             </table>
         </div>
     </div>
+
+    <!-- Modal de Cadastro -->
+    <div id="modal-ter" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Cadastro de usuário</p>
+                <button class="delete"></button>
+            </header>
+            <form action="">
+                <section class="modal-card-body">
+                    <div class="content">
+                        <div class="field">
+                            <p class="control has-icons-left has-icons-right">
+                                <input class="input" type="text" id="name" name="name" placeholder="Nome"
+                                       required>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control has-icons-left has-icons-right">
+                                <input class="input" type="email" id="email" name="email"
+                                       placeholder="E-mail" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <footer class="modal-card-foot">
+                    <a class="button is-success" id="create-user">Cadastrar</a>
+                    <a class="button">Cancelar</a>
+                </footer>
+            </form>
+        </div>
+    </div>
 </main>
+<footer>
+    <div class="">
+        <div class="has-text-centered">
+            <a href="https://douglaszuqueto.com" target="_blank">
+                <img src="https://douglaszuqueto.com/images/logo_2.png" alt="" width="5%">
+            </a>
+            <p>
+                <a href="https://douglaszuqueto.com" target="_blank">2017 - Douglas Zuqueto</a>
+            </p>
+        </div>
+    </div>
+</footer>
 
 <script src="assets/js/axios.min.js"></script>
 <script src="assets/js/mqttws31.min.js"></script>
@@ -93,7 +147,37 @@
             .catch((err) => console.log);
     };
 
-    updateUsersTable();
+    const createUser = (data) => {
+        return http.post(endpoints.users, data);
+    };
+
+    const resetForm = (name, email) => {
+        name.val('');
+        email.val('');
+
+        $('html').removeClass('is-clipped');
+        $('#modal-ter').removeClass('is-active');
+    };
+    $(document).ready(() => {
+        updateUsersTable();
+
+        $('#create-user').on('click', function (e) {
+            e.preventDefault();
+
+            const nameInput = $('#name');
+            const emailInput = $('#email');
+            const data = {
+                name: nameInput.val(),
+                email: emailInput.val()
+            };
+            createUser(data)
+                .then((user) => console.log())
+                .then((user) => resetForm(nameInput, emailInput))
+                .catch((err) => console.log());
+
+            return false;
+        });
+    });
 
 </script>
 </body>
