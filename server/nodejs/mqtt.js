@@ -34,7 +34,8 @@ const formatPayload = (result) => {
         'data': result,
         'status': 0,
     };
-    if (!result.tag) {
+    
+    if (!result.tag || result.state === 0) {
         return payload;
     }
     payload.status = 1;
