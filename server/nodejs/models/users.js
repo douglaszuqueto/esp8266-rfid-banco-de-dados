@@ -16,6 +16,12 @@ const create = (data) => {
     return db.query(query);
 };
 
+const update = (id, data) => {
+    const query = `UPDATE ${table} SET name = '${data.name}', email = '${data.email}' WHERE id = ${id};`;
+
+    return db.query(query);
+};
+
 const remove = (id) => {
     return db.remove(table, id);
 };
@@ -24,5 +30,6 @@ module.exports = {
     all: all,
     find: find,
     create: create,
+    update: update,
     remove: remove
 };

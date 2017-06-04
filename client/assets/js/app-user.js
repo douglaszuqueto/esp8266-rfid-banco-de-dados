@@ -1,6 +1,7 @@
 const usersTable = document.getElementById('users-table');
 const nameInput = $('#name');
 const emailInput = $('#email');
+const idInput = $('#id');
 
 const Users = {
     all: () => {
@@ -11,6 +12,9 @@ const Users = {
     },
     create: (data) => {
         return http.post(endpoints.users, data);
+    },
+    update: (id, data) => {
+        return http.put(`${endpoints.users}/${id}`, data);
     },
     remove: (id) => {
         return http.delete(`${endpoints.users}/${id}`);
@@ -28,7 +32,7 @@ const updateUsersTable = () => {
                 table += `<td>${user.id}</td>`;
                 table += `<td>${user.name}</td>`;
                 table += `<td>${user.email}</td>`;
-                table += `<td class="has-text-centered"><span class="icon"><i class="fa fa-edit"></i></span></td>`;
+                table += `<td class="has-text-centered edit" data-id="${user.id}"><span class="icon"><i class="fa fa-edit"></i></span></td>`;
                 table += `<td class="has-text-centered remove" data-id="${user.id}"><span class="icon"><i class="fa fa-trash-o"></i></span></td>`;
                 table += `</tr>`;
             });
@@ -38,6 +42,7 @@ const updateUsersTable = () => {
 };
 
 const resetForm = () => {
+    idInput.val('');
     nameInput.val('');
     emailInput.val('');
 
@@ -47,30 +52,39 @@ const resetForm = () => {
     $('#modal-ter').removeClass('is-active');
 };
 
-const createUser = () => {
+const createOrUpdateUser = () => {
+    const id = idInput.val();
+
     const data = {
         name: nameInput.val(),
         email: emailInput.val()
     };
 
-    Users.create(data)
-        .then((user) => console.log())
-        .then((user) => resetForm(nameInput, emailInput))
-        .catch((err) => console.log());
+    if (id) {
+        return Users.update(id, data)
+            .then((user) => successMessage('Usuário atualizado com sucesso'))
+            .then((user) => resetForm())
+            .catch((err) => dangerMessage(err));
+    }
+
+    return Users.create(data)
+        .then((user) => successMessage('Usuário criado com sucesso'))
+        .then((user) => resetForm())
+        .catch((err) => dangerMessage(err));
 };
 
 const removeUser = (id) => {
     Users.remove(id)
+        .then((user) => successMessage('Removido com sucesso'))
         .then((user) => updateUsersTable())
-        .catch((err) => console.log(err));
+        .catch((err) => dangerMessage(err));
 };
 
 $(document).ready(() => {
     updateUsersTable();
-
-    $('#create-user').on('click', function (e) {
+    $('.create-user').on('click', function (e) {
         e.preventDefault();
-        createUser();
+        createOrUpdateUser();
         return false;
     });
 
@@ -78,6 +92,25 @@ $(document).ready(() => {
         e.preventDefault();
         const id = $(this).data('id');
         removeUser(id);
+        return false;
+    });
+
+    $(document).on('click', '.edit', function (e) {
+        const id = $(this).data('id');
+        const target = $('.modal-button').data('target');
+
+        Users.get(id)
+            .then((user) => user.data)
+            .then((user) => {
+                idInput.val(user.id);
+                nameInput.val(user.name);
+                emailInput.val(user.email);
+
+                $('html').addClass('is-clipped');
+                $(target).addClass('is-active');
+            })
+            .catch((err) => console.log(err));
+
         return false;
     });
 });

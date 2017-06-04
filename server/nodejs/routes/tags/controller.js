@@ -31,7 +31,9 @@ const create = (req, res) => {
 };
 
 const update = (req, res) => {
-    res.json('update');
+    return model.update(req.params.id, req.body)
+        .then((data) => res.json(data))
+        .catch((err) => res.json(err));
 };
 
 const remove = (req, res) => {

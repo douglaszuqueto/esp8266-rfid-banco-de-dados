@@ -6,34 +6,21 @@ const endpoints = {
     logs: `${apiPath}/logs`,
 };
 
-const pages = {
-    main: '/main.html',
-    users: '/users.html',
-    tags: '/tags.html',
-    logs: '/logs.html',
-};
-
 const http = axios.create({
     headers: {'Cache-Control': 'no-cache'}
 });
-const loadPage = document.getElementById('load-page');
 
-const getPage = (page) => {
-    return http.get(page);
+const alert = $('#alert');
+
+const successMessage = (message) => {
+    alert.removeClass('hidden').addClass('is-success').find('.message-text').html(message);
 };
-
-const loaderPage = (page) => {
-    getPage(pages[page])
-        .then((data) => data.data)
-        .then((html) => loadPage.innerHTML = html)
-        .catch((err) => console.log);
+const dangerMessage = (err) => {
+    alert.removeClass('hidden').addClass('is-danger').find('.message-text').html('Erro:: ' + err);
 };
 
 $(document).ready(() => {
-    $('.change-page').on('click', function () {
-        const href = $(this).attr('href');
-        const page = href.replace('#', '');
-
-        loaderPage(page);
+    $('.delete').on('click', function () {
+        $(this).parent().hide();
     });
 });
