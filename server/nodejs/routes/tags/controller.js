@@ -25,7 +25,9 @@ const searchByTag = (req, res) => {
 };
 
 const create = (req, res) => {
-    res.json('create');
+    return model.create(req.body)
+        .then((data) => res.json(data))
+        .catch((err) => res.json(err));
 };
 
 const update = (req, res) => {
