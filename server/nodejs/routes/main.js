@@ -1,5 +1,13 @@
 const express = require('express')
-    , router = express.Router();
+    , router = express.Router()
+    , config = require('../config/config');
+
+/* endpoints */
+router.get('/', (req, res) => {
+    res.json({
+        'endpoints': config.api.endpoints
+    })
+});
 
 /* user routes */
 router.use('/users', require('./users/route'));
