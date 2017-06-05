@@ -1,4 +1,31 @@
 {
+  "name": "douglaszuqueto-rfid",
+  "version": "1.0",
+  "homepage": "http://rfid.iot-br.com",
+  "author": "Douglas Zuqueto <douglas.zuqueto@gmail.com> (https://douglaszuqueto.com)",
+  "description": "Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID utilizando Banco de Dados",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/douglaszuqueto/esp8266-rfid-banco-de-dados"
+  },
+  "license": "MIT",
+  "keywords": [
+    "nodemcu",
+    "rfid",
+    "python",
+    "nodejs",
+    "web-app",
+    "mysql",
+    "mqtt",
+    "websockets",
+    "api",
+    "docker"
+  ],
+  "scripts": {
+    "prod": "node index",
+    "dev": "nodemon index"
+  },
   "dependencies": {
     "body-parser": "^1.17.2",
     "cors": "^2.8.3",
