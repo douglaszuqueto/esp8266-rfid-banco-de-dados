@@ -42,8 +42,10 @@ Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID uti
 
 ## Como utilizar o projeto
 
-Primeiramente deixe seu **Star** no projeto, é isto mesmo! hehe.
-Segundamente, efetue o fork ou um clone do repositório.
+* 1º - Não possui conta no Gihub? Então crie já a sua e começe partilhar seus projetos :) (opcional);
+* 2º - Não deixe de me seguir no Github :p (opcional)
+* 3º - Gostou do projeto? Deixe já seu **Star**;
+* 4º - Enfim - clone o projeto ou realize o download neste [link](https://github.com/douglaszuqueto/esp8266-rfid-banco-de-dados/archive/master.zip) :).
 
 ### Organização do repositório
 
@@ -54,7 +56,7 @@ O repositório está organizado devido as responsabilidades que o mesmo oferece.
 * esp8266 - firmware para o nodemcu;
 * server - referente ao back-end da aplicação. Neste caso terá 2 back-ends(poderá escolher 1 para seu uso);
     * nodejs
-    * python
+    * python *(em desenvolvimento)*
 
 #### Firmware NodeMCU
 
@@ -63,13 +65,26 @@ O repositório está organizado devido as responsabilidades que o mesmo oferece.
 #### Banco de Dados
 
 #### Server
+
 * NodeJS
-* Python
+* Python (em desenvolvimento)
 
 ## Endpoints
 
 Para cada tabela de nossa aplicalção - users, tags, access_log -, teremos
-uma api completa para efetuar o CRUD(create, read, update, delete) de cada recurso disponível.
+uma api para efetuar o CRUD(create, read, update, delete) de cada recurso disponível.
+
+Portanto, para cada recurso, você poderá realizar uma requisição no seguinte formato:
+
+```
+MÉTODO - URL - RECURSO
+
+GET http://127.0.0.1/api/tags
+
+Neste simples caso, irá retornar todas tags cadastradas no sistema :)
+```
+
+### Lista dos endpoints
 
 * users (/api/users)
     * GET / - lista de usuários
@@ -90,6 +105,7 @@ uma api completa para efetuar o CRUD(create, read, update, delete) de cada recur
     * POST / - cadastro de log
     * UPDATE /:id - atualização de log
     * DELETE /:id - remoção de log
+    
     
 ## Usuários
 
