@@ -19,21 +19,21 @@ Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID uti
 ## Tecnologias utilizadas
 
 * Firmare NodeMCU
-    * rfid;
-    * pubsubclient
+    * [rfid](https://github.com/miguelbalboa/rfid/);
+    * [pubsubclient](https://github.com/knolleary/pubsubclient);
 * Back-end Nodejs
-    * mqttjs
-    * promise
-    * request-promise
-    * express
-    * mysqljs
-    * dotenv
+    * [mqttjs](https://github.com/mqttjs/MQTT.js);
+    * [promise](https://github.com/then/promise);
+    * [request-promise](https://github.com/request/request-promise);
+    * [express](https://github.com/expressjs/express);
+    * [mysqljs](https://github.com/mysqljs/mysql);
+    * [dotenv](https://github.com/motdotla/dotenv);
 * Back-end Python
-    * flask
+    * [flask](https://github.com/pallets/flask);
 * Front-end
-    * bulma
-    * axios
-    * mqttws31
+    * [bulma](https://github.com/jgthms/bulma);
+    * [axios](https://github.com/mzabriskie/axios);
+    * [mqttws31](https://github.com/eclipse/paho.mqtt.javascript);
 
 ## Fluxo do projeto
 
