@@ -1,5 +1,6 @@
 # Controle de acesso utilizando NodeMCU, RFID, MQTT e Banco de Dados MySQL
 
+## *-- Documentação em construção --* 
 Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID utilizando Banco de Dados
 
 ![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/diagrama.png)
@@ -13,13 +14,13 @@ Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID uti
 * Jumpers;
 * Tags RFID;
 * Buzzer;
-* Protoboar;
+* Protoboard;
 
 ## Tecnologias utilizadas
 
 * Firmare NodeMCU
-    * Rfid;
-    * Pubsubclient
+    * rfid;
+    * pubsubclient
 * Back-end Nodejs
     * mqttjs
     * promise
@@ -32,7 +33,7 @@ Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID uti
 * Front-end
     * bulma
     * axios
-    * mqttws31    
+    * mqttws31
 
 ## Fluxo do projeto
 
@@ -67,7 +68,7 @@ O repositório está organizado devido as responsabilidades que o mesmo oferece.
 
 ## Endpoints
 
-Para tabela de nossa aplicalção - users, tags, access_log -, teremos
+Para cada tabela de nossa aplicalção - users, tags, access_log -, teremos
 uma api completa para efetuar o CRUD(create, read, update, delete) de cada recurso disponível.
 
 * users (/api/users)
