@@ -86,20 +86,20 @@ Neste simples caso, irá retornar todas tags cadastradas no sistema :)
 
 ### Lista dos endpoints
 
-* users (/api/users)
+* **users (/api/users)**
     * GET / - lista de usuários
     * GET /:id - busca de usuário por ID
     * POST / - cadastro de usuário
     * UPDATE /:id - atualização de usuário
     * DELETE /:id - remoção de usuário
-* tags (/api/tags)
+* **tags (/api/tags)**
     * GET / - lista de tags
     * GET /:id - busca de tag por ID
     * GET /tag/:tag - busca de tag por nome
     * POST / - cadastro de tag
     * UPDATE /:id - atualização de tag
     * DELETE /:id - remoção de tag
-* access_log (/api/logs)
+* **access_log (/api/logs)**
     * GET / - lista de logs
     * GET /:id - busca de log por ID
     * POST / - cadastro de log
