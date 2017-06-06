@@ -2,11 +2,12 @@ const express = require('express')
     , router = express.Router()
     , controller = require('./controller');
 
-router.get('/', controller.index);
-router.get('/:id', controller.show);
-router.get('/tag/:tag', controller.searchByTag);
-router.post('/', controller.create);
-router.put('/:id', controller.update);
-router.delete('/:id', controller.remove);
+router
+    .get('/', controller.index)
+    .get('/:id', controller.show)
+    .get('/tag/:tag', controller.searchByTag)
+    .post('/', controller.create)
+    .put('/:id', controller.update)
+    .delete('/:id', controller.remove);
 
 module.exports = router;
