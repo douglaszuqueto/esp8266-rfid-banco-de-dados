@@ -47,7 +47,7 @@ Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID uti
 * 3º - Gostou do projeto? Deixe já seu **Star**;
 * 4º - Enfim - clone o projeto ou realize o download neste [link](https://github.com/douglaszuqueto/esp8266-rfid-banco-de-dados/archive/master.zip) :).
 
-### Organização do repositório
+## Organização do repositório
 
 O repositório está organizado devido as responsabilidades que o mesmo oferece.
 
@@ -58,7 +58,7 @@ O repositório está organizado devido as responsabilidades que o mesmo oferece.
     * nodejs
     * python *(em desenvolvimento)*
 
-#### Firmware NodeMCU
+### Firmware NodeMCU
 
 O firmware como dito, está localizado dentro da pasta *esp8266*, portanto, abra-o com a IDE do Arduino.
 
@@ -81,14 +81,14 @@ TOPIC_PONG - topico responsavel por receber o status da autenticação rfid
 Você poderá utilizar, porém não garanto uma estabilidade 100% visto que toda hora estou testando algo novo :P.
 A dica é ter seu próprio broker mosquitto em casa ou em alguma VPS.
 
-##### Esquemático de ligação - RFID + NodeMCU
+#### Esquemático de ligação - RFID + NodeMCU
 
 ![img]()
 
 Com todo circuito do embarcado pronto, agora é só realizar o upload para placa e ficar de olho no monitor serial. Veja se está tudo Ok. 
 Caso estiver, você esta apto a testar suas tags RFID para ver se realmente está tudo certo no que tange o Embarcado. Agora vamos para o próximo tópico.
 
-#### Aplicação Web
+### Aplicação Web
 
 A aplicação web - localizada na pasta **client**, é 100% html, então não precisa de nada extraordinário para você rodar. Pode até abrir diretamente com o Browser.
 
@@ -115,7 +115,7 @@ const mqttConfig = {
 
 ```
 
-#### Banco de Dados
+### Banco de Dados
 
 O banco de dados será o MySQL(resolvi escolher ele, pois é um dos mais conhecidos, logo grande parte das pessoas já passaram por ele :P).
 
@@ -124,13 +124,13 @@ O nome que atribui ao banco de dados é **rfid**, caso queira poderá escolher o
  
  Basicamente não tem mistério algum, somente cria a estrutura de acordo com o arquivo :).
 
-#### Server
+### Server
 
 Entrando na parte do back-end, como já deve ter percebido, você terá 2 alternativas. Em Python ou em NodeJS.
 
 Até o momento(05/06/2017), foi desenvolvido apenas em nodejs, assim que der, criarei um utilizando python com Flask.
 
-* NodeJS
+#### NodeJS
 
 Para começar, nada mais justo do que ter o NodeJS instalado, cocorda? Para isso, entre no [site oficial](https://nodejs.org) e faça a instalação de acordo com seu Sistema Operacional. 
 
@@ -169,7 +169,7 @@ Para isso, apenas rode o comando **yarn prod**(um alias do comando **node index*
 
 Se deu tudo certo, você terá acesso ao webservice rodando na url **127.0.0.1:3000/api**. No tópico **Endpoints**, será tratado de caso recurso disponível.
 
-* Python (em desenvolvimento)
+#### Python (em desenvolvimento)
 
 ## Endpoints
 
