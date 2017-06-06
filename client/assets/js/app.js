@@ -6,6 +6,12 @@ const endpoints = {
     logs: `${apiPath}/logs`,
 };
 
+const mqttConfig = {
+    broker: 'broker.iot-br.com',
+    topic: '/empresas/douglaszuqueto/catraca/entrada/ping',
+    port: 8083
+};
+
 const http = axios.create({
     headers: {'Cache-Control': 'no-cache'}
 });

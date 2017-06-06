@@ -1,11 +1,5 @@
 const lastTag = document.getElementById('last-tag');
 
-const mqttConfig = {
-    broker: 'broker.iot-br.com',
-    topic: '/empresas/douglaszuqueto/catraca/entrada/ping',
-    port: 8083
-};
-
 const mqttConnect = () => {
     return new Paho.MQTT.Client(
         mqttConfig.broker,
