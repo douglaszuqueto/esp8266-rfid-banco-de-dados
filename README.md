@@ -90,7 +90,7 @@ A dica é ter seu próprio broker mosquitto em casa ou em alguma VPS.
 
 #### Esquemático de ligação - RFID + NodeMCU
 
-![img]()
+![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/nodemcu-rfid.png)
 
 Com todo circuito do embarcado pronto, agora é só realizar o upload para placa e ficar de olho no monitor serial. Veja se está tudo Ok. 
 Caso estiver, você esta apto a testar suas tags RFID para ver se realmente está tudo certo no que tange o Embarcado. Agora vamos para o próximo tópico.
