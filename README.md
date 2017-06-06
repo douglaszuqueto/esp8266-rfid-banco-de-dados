@@ -39,13 +39,37 @@ Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID uti
 
 ![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/rfid.png)
 
+No diagrama acima, pode-se observar qual será o fluxo da aplicação que foi desenvolvida. Parece complicado, mas quando você começa entender como se da a comunicação de redes, você tira de letra uma arquitetura dessas.
+
+Basicamente temos 2 fluxos neste projeto - o **ping** e o **pong**. Ambos serão abordados abaixo.
+
 ### Ping
+
+O fluxo referente ao **PING**, é o fluxo inicial da comunicação. É a partir dele que toda comunicação começara. Veja a imagem referente abaixo:
 
 ![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/rfid-ping.png)
 
+Basicamente as etapas abaixo serão feitas:
+
+* 1º - Leitura do ID da tag rfid;
+* 2º - Preparação da (payload)mensagem para envio;
+* 3º - Envio da payload através do **protocolo MQTT**;
+* 3º - O serviço do back-end estará na escuta do tópico referente;
+* 4º - Recebida a payload(basicamente é o ID da tag), será efetuada uma consulta em nosso banco de dados;
+* 5º - Depois da tag ser consultada, será feito uma verificação(condicional) se a mesma está **ativada** ou **desativada**;
+
+... segue no próximo tópico
+
+
 ### Pong
 
+O **PONG** será responsável pelo retorno, ou seja, se a tag lida está ativa/bloqueada ou simplesmente não existe. O resultado será um simples booleano - **0 ou 1**. Veja como ficou o fluxo na imagem abaixo:
+
 ![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/rfid-pong.png)
+
+Portanto, continuando com o fluxo da aplicação, será dado continuidad de acordo com o ** 5º passo** abordado no tópico acima.
+
+
 
 ## Como utilizar o projeto
 
