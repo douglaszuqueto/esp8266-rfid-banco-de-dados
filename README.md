@@ -42,7 +42,7 @@ Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID uti
 
 ## Como utilizar o projeto
 
-* 1º - Não possui conta no Gihub? Então crie já a sua e começe partilhar seus projetos :) (opcional);
+* 1º - Não possui conta no Gihub? Então crie já a sua e comece partilhar seus projetos :) (opcional);
 * 2º - Não deixe de me seguir no Github :p (opcional)
 * 3º - Gostou do projeto? Deixe já seu **Star**;
 * 4º - Enfim - clone o projeto ou realize o download neste [link](https://github.com/douglaszuqueto/esp8266-rfid-banco-de-dados/archive/master.zip) :).
@@ -62,9 +62,9 @@ O repositório está organizado devido as responsabilidades que o mesmo oferece.
 
 O firmware como dito, está localizado dentro da pasta *esp8266*, portanto, abra-o com a IDE do Arduino.
 
-**OBS:** Lembre-se que você precisa ter 2 bibliotecas instaladas, ambas foram citatas no tópico *Tecnologias utilizadas*
+**OBS:** Lembre-se que você precisa ter 2 bibliotecas instaladas, ambas foram citadas no tópico *Tecnologias utilizadas*
 
-Tendo o firmware já aberto, você terá que efetuar a mudança de algumas variáveis ao seu escopo. Como rede wifi, broker, topicos.
+Tendo o firmware já aberto, você terá que efetuar a mudança de algumas variáveis ao seu escopo. Como rede wifi, broker, tópicos.
 
 Portanto se atente as seguintes variáveis:
 
@@ -132,11 +132,11 @@ Até o momento(05/06/2017), foi desenvolvido apenas em nodejs, assim que der, cr
 
 #### NodeJS
 
-Para começar, nada mais justo do que ter o NodeJS instalado, cocorda? Para isso, entre no [site oficial](https://nodejs.org) e faça a instalação de acordo com seu Sistema Operacional. 
+Para começar, nada mais justo do que ter o NodeJS instalado, concorda? Para isso, entre no [site oficial](https://nodejs.org) e faça a instalação de acordo com seu Sistema Operacional. 
 
 Num segundo momento, navegue até a pasta referente ao nodejs: **server/nodejs**.
 
-Estando na pasta, você deverá efetuar alguns procedimentos iniciais, como instalar as depedências do projeto bem como configurar o acesso ao banco de dados, dentre outras configurações.
+Estando na pasta, você deverá efetuar alguns procedimentos iniciais, como instalar as dependências do projeto bem como configurar o acesso ao banco de dados, dentre outras configurações.
 
 ##### Instalando as dependências
  
@@ -173,7 +173,7 @@ Se deu tudo certo, você terá acesso ao webservice rodando na url **127.0.0.1:3
 
 ## Endpoints
 
-Para cada tabela de nossa aplicalção - users, tags, access_log -, teremos
+Para cada tabela de nossa aplicação - users, tags, access_log -, teremos
 uma api para efetuar o CRUD(create, read, update, delete) de cada recurso disponível.
 
 Portanto, para cada recurso, você poderá realizar uma requisição no seguinte formato:
@@ -227,7 +227,7 @@ Neste simples caso, irá retornar todas tags cadastradas no sistema :)
 
 ![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/prints/rfid-logs.png)
 
-## Testando a aplicação
+## Testando a projeto
 
 Com todo ambiente pronto, pode-se começar os testes. Para isto, tenha em mão o ID de suas tags.
 
@@ -239,9 +239,9 @@ Logo em seguida, você deverá cadastrar no sistema, e caso, assim como eu que s
 Bueno galera, por enquanto era isso, creio que consegui atingir meu objetivo onde o mesmo era demonstrar
 de forma simples como seria uma Autenticação de Tags RFID com banco de dados. Fui um pouco além criando webservice e etc, mas ficou um ecossistema bem bacana.
 
-Como deu para ver, este projeto é o básico do básico. Não possui nenhuma camada de autenticação de usuarios, criptografia, ou seja - segurança em geral.
+Como deu para ver, este projeto é o básico do básico. Não possui nenhuma camada de autenticação de usuários, criptografia, ou seja - segurança em geral.
 
-Outro ponto que ja me perguntaram era sobre o cadastro automatico da tag através do embarcado, leds, lcd e etc. Pretendo fazer um projeto bem mais completo caso haja um certo interesse por parte da comunidade,
+Outro ponto que já me perguntaram era sobre o cadastro automático da tag através do embarcado, leds, lcd e etc. Pretendo fazer um projeto bem mais completo caso haja um certo interesse por parte da comunidade,
 confesso que foi um projeto bem bacana de desenvolver, mesmo com toda 'simplicidade' envolvida.
 
 Vou ficando por aqui, qualquer feedback, dúvida - já sabem onde me encontrar. Então se curtiu realmente o projeto, não deixe de deixar aquele Star no repositório :). É muito importante para avaliar qual foi o grau de contribuição que o mesmo causou.
