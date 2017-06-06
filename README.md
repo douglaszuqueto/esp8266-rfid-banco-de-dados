@@ -241,7 +241,9 @@ de forma simples como seria uma Autenticação de Tags RFID com banco de dados. 
 
 Como deu para ver, este projeto é o básico do básico. Não possui nenhuma camada de autenticação de usuários, criptografia, ou seja - segurança em geral.
 
-Outro ponto que já me perguntaram era sobre o cadastro automático da tag através do embarcado, leds, lcd e etc. Pretendo fazer um projeto bem mais completo caso haja um certo interesse por parte da comunidade,
+Outro ponto que já me perguntaram era sobre o cadastro automático da tag através do embarcado, leds, lcd e etc - logo de fato foquei no real objetivo.
+ 
+Pretendo fazer um projeto mais completo caso haja um certo interesse por parte da comunidade,
 confesso que foi um projeto bem bacana de desenvolver, mesmo com toda 'simplicidade' envolvida.
 
 Vou ficando por aqui, qualquer feedback, dúvida - já sabem onde me encontrar. Então se curtiu realmente o projeto, não deixe de deixar aquele Star no repositório :). É muito importante para avaliar qual foi o grau de contribuição que o mesmo causou.
