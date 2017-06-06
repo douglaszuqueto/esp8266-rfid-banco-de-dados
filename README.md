@@ -69,8 +69,16 @@ O **PONG** será responsável pelo retorno, ou seja, se a tag lida está ativa/b
 
 Portanto, continuando com o fluxo da aplicação, será dado continuidad de acordo com o ** 5º passo** abordado no tópico acima.
 
-
-
+* 6º - Tendo nosso retorno(resposta da leitura) em 'maõs', a mensagem(0 ou 1) será publicada no tópico referente;
+* 7º - O embarcado, por sua vez, estará assinando o tópico. Portanto, logo será recebida a mensagem e tratada no **callback**;
+* 8º - ... neste passo fica a liberdade de vocês implementarem a ação/feedback que será tomado. Eu simplesmente printei no monitor serial o status do retorno. Segue abaixo  uma lista de ações e/ou feedbacks que podem ser tomados.
+    * Feedbacks
+        * Ligar um Led (vermelho/verde) de acordo com status recebido;
+        * Mostrar alguma mensagem, bem como o nome da pessoa autenticada em um display;
+    * Ações
+        * Abrir uma porta;
+        * Acionar um rele com alguma devida ação;
+        
 ## Como utilizar o projeto
 
 * 1º - Não possui conta no Gihub? Então crie já a sua e comece partilhar seus projetos :) (opcional);
