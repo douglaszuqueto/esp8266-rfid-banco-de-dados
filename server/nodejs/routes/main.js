@@ -1,12 +1,12 @@
 const express = require('express')
-    , router = express.Router()
-    , config = require('../config/config');
+  , router = express.Router()
+  , config = require('../config/config');
 
 /* endpoints */
 router.get('/', (req, res) => {
-    res.json({
-        'endpoints': config.api.endpoints
-    })
+  res.json({
+    'endpoints': config.api.endpoints
+  })
 });
 
 /* user routes */

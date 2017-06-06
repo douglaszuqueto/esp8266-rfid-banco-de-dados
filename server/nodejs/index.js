@@ -1,7 +1,7 @@
 const express = require('express')
-    , bodyParser = require('body-parser')
-    , cors = require('cors')
-    , app = express();
+  , bodyParser = require('body-parser')
+  , cors = require('cors')
+  , app = express();
 
 /* load dotenv */
 require('dotenv').load();
@@ -14,9 +14,9 @@ app.use(cors());
 
 /* Routes */
 app.get('/', (req, res) => {
-    res.json({
-        'endpoints': config.api.endpoints
-    });
+  res.json({
+    'endpoints': config.api.endpoints
+  });
 });
 
 app.use('/api', require('./routes/main'));
