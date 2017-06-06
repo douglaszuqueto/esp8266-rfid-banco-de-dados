@@ -1,11 +1,16 @@
 # Controle de acesso utilizando NodeMCU, RFID, MQTT e Banco de Dados MySQL
 
 ## *-- Documentação em construção --* 
-Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID utilizando Banco de Dados
 
 ![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/rfid.png)
 
 ## Introdução
+
+Este projeto possui como objetivo autenticar/autorizar usuários a partir de Tags RFID utilizando uma **SIMPLES** integração com Banco de Dados.
+
+O projeto visa atender uma pendência que eu já tinha com o tema em questão e também atender uma demanda de usuários da comunidade que buscam por temas do tipo. - Em 1 dia, acho que vi umas 3 pessoas procurando por algo.
+
+Então que comecem os jogos - espero que gostem :)
 
 ## Materiais utilizados
 
@@ -39,14 +44,48 @@ Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID uti
 
 ![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/rfid.png)
 
+No diagrama acima, pode-se observar qual será o fluxo da aplicação que foi desenvolvida. Parece complicado, mas quando você começa entender como se da a comunicação de redes, você tira de letra uma arquitetura dessas.
+
+Basicamente temos 2 fluxos neste projeto - o **ping** e o **pong**. Ambos serão abordados abaixo.
+
 ### Ping
+
+O fluxo referente ao **PING**, é o fluxo inicial da comunicação. É a partir dele que toda comunicação começara. Veja a imagem referente abaixo:
 
 ![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/rfid-ping.png)
 
+
+Basicamente as etapas abaixo serão feitas:
+
+* 1º - Leitura do ID da tag rfid;
+* 2º - Preparação da (payload)mensagem para envio;
+* 3º - Envio da payload através do **protocolo MQTT**;
+* 3º - O serviço do back-end estará na escuta do tópico referente;
+* 4º - Recebida a payload(basicamente é o ID da tag), será efetuada uma consulta em nosso banco de dados;
+* 5º - Depois da tag ser consultada, será feito uma verificação(condicional) se a mesma está **ativada** ou **desativada**;
+
+... segue no próximo tópico
+
+
 ### Pong
+
+O **PONG** será responsável pelo retorno, ou seja, se a tag lida está ativa/bloqueada ou simplesmente não existe. O resultado será um simples retorno booleano - **0 ou 1**. Veja como ficou o fluxo na imagem abaixo:
 
 ![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/rfid-pong.png)
 
+
+Portanto, continuando com o fluxo da aplicação, será dado continuidade de acordo com o **5º passo** abordado no tópico acima.
+
+* 6º - Tendo nosso retorno(resposta da leitura) em 'mãos', a mensagem(0 ou 1) será publicada no tópico referente;
+* 7º - O embarcado, por sua vez, estará assinando o tópico. Portanto, logo será recebida a mensagem e tratada no **callback**;
+* 8º - ... neste passo fica a liberdade de vocês implementarem a ação/feedback que será tomado. Eu simplesmente printei no monitor serial o status do retorno. Segue abaixo  uma lista de ações e/ou feedbacks que podem ser tomados.
+    * Feedbacks
+        * Ligar um Led (vermelho/verde) de acordo com status recebido;
+        * Mostrar alguma mensagem, bem como o nome da pessoa autenticada em um display;
+    * Ações
+        * Abrir uma porta;
+        * Acionar um rele e realizar alguma ação;
+        
 ## Como utilizar o projeto
 
 * 1º - Não possui conta no Gihub? Então crie já a sua e comece partilhar seus projetos :) (opcional);
