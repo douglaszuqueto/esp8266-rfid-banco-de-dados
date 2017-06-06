@@ -181,7 +181,7 @@ Portanto, para cada recurso, você poderá realizar uma requisição no seguinte
 ```
 MÉTODO - URL - RECURSO
 
-GET http://127.0.0.1/api/tags
+GET http://127.0.0.1:3000/api/tags
 
 Neste simples caso, irá retornar todas tags cadastradas no sistema :)
 ```
@@ -209,11 +209,23 @@ Neste simples caso, irá retornar todas tags cadastradas no sistema :)
     * DELETE /:id - remoção de log
     
     
-## Usuários
+## Páginas da aplicação web
 
-## Tags
+### Home
 
-## Logs
+![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/prints/rfid-home.png)
+
+### Usuários
+
+![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/prints/rfid-users.png)
+
+### Tags
+
+![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/prints/rfid-tags.png)
+
+### Logs
+
+![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/prints/rfid-logs.png)
 
 ## Testando a aplicação
 
