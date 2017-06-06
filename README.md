@@ -296,5 +296,7 @@ Vou ficando por aqui, qualquer feedback, dúvida - já sabem onde me encontrar. 
 
 ## Referências
 
+* [Controle de acesso com NodeMCU + RFID](jualabs.wordpress.com/2016/09/26/controle-de-acesso-com-nodemcu-rfid/);
+
 **Não esqueça de acompanhar o blog :): https://douglaszuqueto.com**
 
