@@ -1,7 +1,5 @@
 # Controle de acesso utilizando NodeMCU, RFID, MQTT e Banco de Dados MySQL
 
-## *-- Documentação em construção --* 
-
 ![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/rfid.png)
 
 ## Introdução
