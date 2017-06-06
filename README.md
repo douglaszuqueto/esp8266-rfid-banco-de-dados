@@ -49,6 +49,7 @@ O fluxo referente ao **PING**, é o fluxo inicial da comunicação. É a partir 
 
 ![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/rfid-ping.png)
 
+
 Basicamente as etapas abaixo serão feitas:
 
 * 1º - Leitura do ID da tag rfid;
@@ -66,6 +67,7 @@ Basicamente as etapas abaixo serão feitas:
 O **PONG** será responsável pelo retorno, ou seja, se a tag lida está ativa/bloqueada ou simplesmente não existe. O resultado será um simples retorno booleano - **0 ou 1**. Veja como ficou o fluxo na imagem abaixo:
 
 ![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/rfid-pong.png)
+
 
 Portanto, continuando com o fluxo da aplicação, será dado continuidade de acordo com o **5º passo** abordado no tópico acima.
 
