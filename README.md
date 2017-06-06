@@ -229,7 +229,22 @@ Neste simples caso, irá retornar todas tags cadastradas no sistema :)
 
 ## Testando a aplicação
 
+Com todo ambiente pronto, pode-se começar os testes. Para isto, tenha em mão o ID de suas tags.
+
+Logo em seguida, você deverá cadastrar no sistema, e caso, assim como eu que só tenho duas, eu deixei uma tag ativa e outra desativada. Assim
+ simulando um ambiente onde uma tag será autenticada e outra será negada.
+
 ## Finalizando
+
+Bueno galera, por enquanto era isso, creio que consegui atingir meu objetivo onde o mesmo era demonstrar
+de forma simples como seria uma Autenticação de Tags RFID com banco de dados. Fui um pouco além criando webservice e etc, mas ficou um ecossistema bem bacana.
+
+Como deu para ver, este projeto é o básico do básico. Não possui nenhuma camada de autenticação de usuarios, criptografia, ou seja - segurança em geral.
+
+Outro ponto que ja me perguntaram era sobre o cadastro automatico da tag através do embarcado, leds, lcd e etc. Pretendo fazer um projeto bem mais completo caso haja um certo interesse por parte da comunidade,
+confesso que foi um projeto bem bacana de desenvolver, mesmo com toda 'simplicidade' envolvida.
+
+Vou ficando por aqui, qualquer feedback, dúvida - já sabem onde me encontrar. Então se curtiu realmente o projeto, não deixe de deixar aquele Star no repositório :). É muito importante para avaliar qual foi o grau de contribuição que o mesmo causou.
 
 ## Referências
 
