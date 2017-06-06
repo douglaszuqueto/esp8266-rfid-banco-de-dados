@@ -63,13 +63,13 @@ Basicamente as etapas abaixo serão feitas:
 
 ### Pong
 
-O **PONG** será responsável pelo retorno, ou seja, se a tag lida está ativa/bloqueada ou simplesmente não existe. O resultado será um simples booleano - **0 ou 1**. Veja como ficou o fluxo na imagem abaixo:
+O **PONG** será responsável pelo retorno, ou seja, se a tag lida está ativa/bloqueada ou simplesmente não existe. O resultado será um simples retorno booleano - **0 ou 1**. Veja como ficou o fluxo na imagem abaixo:
 
 ![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/rfid-pong.png)
 
-Portanto, continuando com o fluxo da aplicação, será dado continuidad de acordo com o ** 5º passo** abordado no tópico acima.
+Portanto, continuando com o fluxo da aplicação, será dado continuidade de acordo com o **5º passo** abordado no tópico acima.
 
-* 6º - Tendo nosso retorno(resposta da leitura) em 'maõs', a mensagem(0 ou 1) será publicada no tópico referente;
+* 6º - Tendo nosso retorno(resposta da leitura) em 'mãos', a mensagem(0 ou 1) será publicada no tópico referente;
 * 7º - O embarcado, por sua vez, estará assinando o tópico. Portanto, logo será recebida a mensagem e tratada no **callback**;
 * 8º - ... neste passo fica a liberdade de vocês implementarem a ação/feedback que será tomado. Eu simplesmente printei no monitor serial o status do retorno. Segue abaixo  uma lista de ações e/ou feedbacks que podem ser tomados.
     * Feedbacks
@@ -77,7 +77,7 @@ Portanto, continuando com o fluxo da aplicação, será dado continuidad de acor
         * Mostrar alguma mensagem, bem como o nome da pessoa autenticada em um display;
     * Ações
         * Abrir uma porta;
-        * Acionar um rele com alguma devida ação;
+        * Acionar um rele e realizar alguma ação;
         
 ## Como utilizar o projeto
 
