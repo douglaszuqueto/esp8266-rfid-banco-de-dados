@@ -16,7 +16,7 @@ Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID uti
 * Buzzer;
 * Protoboard;
 
-## Tecnologias utilizadas
+## Tecnologias utilizadas(bibliotecas, frameworks)
 
 * Firmare NodeMCU
     * [rfid](https://github.com/miguelbalboa/rfid/);
@@ -60,13 +60,115 @@ O repositório está organizado devido as responsabilidades que o mesmo oferece.
 
 #### Firmware NodeMCU
 
+O firmware como dito, está localizado dentro da pasta *esp8266*, portanto, abra-o com a IDE do Arduino.
+
+**OBS:** Lembre-se que você precisa ter 2 bibliotecas instaladas, ambas foram citatas no tópico *Tecnologias utilizadas*
+
+Tendo o firmware já aberto, você terá que efetuar a mudança de algumas variáveis ao seu escopo. Como rede wifi, broker, topicos.
+
+Portanto se atente as seguintes variáveis:
+
+```
+SSID - nome de sua rede wifi
+PASSWORD - senha de sua rede wifi
+BROKER_MQTT - url do broker mqtt
+BROKER_PORT - porta do broker mqtt
+TOPIC_PING - topico utilizado para publicar o valor tag rfid
+TOPIC_PONG - topico responsavel por receber o status da autenticação rfid
+```
+
+**OBS²** Um adendo ao broker utilizado. Este broker eu tenho implementado em minha VPS para uso pessoal. 
+Você poderá utilizar, porém não garanto uma estabilidade 100% visto que toda hora estou testando algo novo :P.
+A dica é ter seu próprio broker mosquitto em casa ou em alguma VPS.
+
+##### Esquemático de ligação - RFID + NodeMCU
+
+![img]()
+
+Com todo circuito do embarcado pronto, agora é só realizar o upload para placa e ficar de olho no monitor serial. Veja se está tudo Ok. 
+Caso estiver, você esta apto a testar suas tags RFID para ver se realmente está tudo certo no que tange o Embarcado. Agora vamos para o próximo tópico.
+
 #### Aplicação Web
+
+A aplicação web - localizada na pasta **client**, é 100% html, então não precisa de nada extraordinário para você rodar. Pode até abrir diretamente com o Browser.
+
+Deixo abaixo algumas dicas para ter um ambiente de teste/desenvolvimento mais agradável.
+
+* Uso do Caddy Server(o que venho utilizando até o momento);
+* Uso do Nginx;
+* Uso do Apache;
+* http-server (modulo para nodejs);
+
+Na parte da aplicação web, temos que realizar apenas 2 mudanças. 
+Basicamente é a URL da API e também a URL do Broker.
+
+Todas url's estão no arquivo **app.js**, localizado em **assets/js/app.js**.
+
+```
+const apiPath = 'http://127.0.0.1:3000/api'; // caso esteja em localhost, pode deixar assim mesmo.
+
+const mqttConfig = {
+    broker: 'broker.iot-br.com', // url do broker
+    topic: '/empresas/douglaszuqueto/catraca/entrada/ping', // topico ouvinte
+    port: 8083 // porta referente ao WebSockets do Broker
+};
+
+```
 
 #### Banco de Dados
 
+O banco de dados será o MySQL(resolvi escolher ele, pois é um dos mais conhecidos, logo grande parte das pessoas já passaram por ele :P).
+
+O nome que atribui ao banco de dados é **rfid**, caso queira poderá escolher outro nome sem problemas.
+ A estrutura do banco, está dentro do arquivo **database/database.sql**.
+ 
+ Basicamente não tem mistério algum, somente cria a estrutura de acordo com o arquivo :).
+
 #### Server
 
+Entrando na parte do back-end, como já deve ter percebido, você terá 2 alternativas. Em Python ou em NodeJS.
+
+Até o momento(05/06/2017), foi desenvolvido apenas em nodejs, assim que der, criarei um utilizando python com Flask.
+
 * NodeJS
+
+Para começar, nada mais justo do que ter o NodeJS instalado, cocorda? Para isso, entre no [site oficial](https://nodejs.org) e faça a instalação de acordo com seu Sistema Operacional. 
+
+Num segundo momento, navegue até a pasta referente ao nodejs: **server/nodejs**.
+
+Estando na pasta, você deverá efetuar alguns procedimentos iniciais, como instalar as depedências do projeto bem como configurar o acesso ao banco de dados, dentre outras configurações.
+
+##### Instalando as dependências
+ 
+Como gerenciador de dependências utilizei o [Yarn](https://yarnpkg.com/pt-BR/docs/install), caso ainda não o tenha, no link da citação terá os passos necessários.
+
+Depois de instalado, basta rodar o comando **yarn**.
+
+##### Configurando o arquivo .env
+
+Para centralizar de uma forma bacana as variáveis de nosso ambiente, eu utilizei o **dotenv** para este fim.
+
+Perceberás que na raiz do projeto, possui um arquivo **.env.example**, faça uma cópia dando o nome de **.env**.
+Você verá esta estrutura:
+
+```
+APP_URL=http://127.0.0.1:3000/ // url base do webservice
+
+DB_HOST=127.0.0.1 // ip/host do Mysql
+DB_DATABASE=rfid // nome dado ao banco de dados
+DB_USER=rfid // usuário do banco de dados
+DB_PASS=rfid // senha do banco de dados
+
+BROKER_HOST=broker.iot-br.com // ip/host do broker
+BROKER_PORT=1883 // porta do broker mqtt
+```
+
+Depois de configurado, já está tudo pronto para subir nosso webservice.
+
+Para isso, apenas rode o comando **yarn prod**(um alias do comando **node index**)
+
+Se deu tudo certo, você terá acesso ao webservice rodando na url **127.0.0.1:3000/api**. No tópico **Endpoints**, será tratado de caso recurso disponível.
+
 * Python (em desenvolvimento)
 
 ## Endpoints
