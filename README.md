@@ -166,7 +166,7 @@ O banco de dados será o MySQL(resolvi escolher ele, pois é um dos mais conheci
 O nome que atribui ao banco de dados é **rfid**, caso queira poderá escolher outro nome sem problemas.
  A estrutura do banco, está dentro do arquivo **database/database.sql**.
  
- Basicamente não tem mistério algum, somente cria a estrutura de acordo com o arquivo :).
+ Basicamente não tem mistério algum, somente crie a estrutura de acordo com o arquivo :).
 
 ### Server
 
@@ -271,7 +271,7 @@ Neste simples caso, irá retornar todas tags cadastradas no sistema :)
 
 ![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-rfid-banco-de-dados/master/files/images/prints/rfid-logs.png)
 
-## Testando a projeto
+## Testando o projeto
 
 Com todo ambiente pronto, pode-se começar os testes. Para isto, tenha em mão o ID de suas tags.
 
