@@ -300,6 +300,6 @@ Vou ficando por aqui, qualquer feedback, dúvida - já sabem onde me encontrar. 
 
 ## Gostou do projeto?
 
-Caso tenha gostado deste e de outros projetos que mantenho, no dia 18/06/2017 abri uma campanha de financimanento recorrente com o objetivo de captar recursos para uma dedicação fulltime em projetos open source.
+Caso tenha gostado deste e de outros projetos que mantenho, no dia 18/06/2017 abri uma campanha de financiamento recorrente com o objetivo de captar recursos para uma dedicação fulltime em projetos open source.
  
 Portanto, caso deseja me ajudar, fica aqui o [link do meu Apoia.se](https://apoia.se/douglaszuqueto). Desde já, muito obrigado :D.
